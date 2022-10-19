@@ -1,3 +1,3 @@
-module cya
+module chooseYourOwnAdventure
 
 go 1.18
