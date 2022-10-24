@@ -10,8 +10,9 @@ import (
 // options array function
 
 func town() {
-	fmt.Println()
 	if brave != "ignored" {
+		fmt.Println("===========================================")
+		fmt.Println()
 		fmt.Println("Since you're here again anyway, you consider taking some more time for another villager.")
 		fmt.Println("But then again, the longer you delay, the more others will suffer.")
 
@@ -40,6 +41,7 @@ func town() {
 			town()
 		}
 	} else {
+		fmt.Println("===========================================")
 		fmt.Println()
 		townsfolk()
 		fmt.Println("Unfortunately, you only have time for one conversation.")
@@ -63,7 +65,10 @@ func town() {
 }
 
 func blacksmith() {
-	fmt.Println()
+	fmt.Println("-------------------")
+	fmt.Println("You have always known the blacksmith to be a reliable man.")
+	fmt.Println("While you aren't sure what happened to change his demeanor,")
+	fmt.Println("you believe he's your best chance for reliable aid.")
 	fmt.Println("The dragon killed his daughter. He has created a spear designed to pierce dragon hide.")
 	blksmtOffer = getInput("He offers it to you for your quest. Do you offer him money? ")
 	if blksmtOffer == "yes" {
@@ -82,6 +87,29 @@ func blacksmith() {
 	}
 }
 func merchant() {
+	fmt.Println("-------------------")
+	fmt.Println("That merchant must have picked up something in his travels.")
+	fmt.Println("You decide the go see what he's got for sale.")
+	fmt.Println("The merchant's eyes light up as he sees you approach.")
+	fmt.Println(`"Well met, sir knight!" he exclaims as you reach his cart.`)
+	fmt.Println(`"What can the humble Travers do for thee?"`)
+	fmt.Println(`"What do you know of the dragon?"`)
+	fmt.Println(`"Ah! That is a truly fearsome beast"`)
+	fmt.Println(`"Many have tried to vanquish the tyrant, but alas, few have survived."`)
+	fmt.Println(`"And as I understand it, none have even managed to scratch it."`)
+	fmt.Println(`"There is only one weapon that can pierce it's iron hide."`)
+	fmt.Println(`"Oh?' you say, 'And where might I find this weapon?"`)
+	fmt.Println(`"I have it here, of course! There was a knight in the North that
+	was gathering a force for an expedition to rid the land of the dragon.
+	The night before he was to set out, he choked on a chicken bone and died.
+	His family asked that I take the weapon and find someone to finish what he started."`)
+	fmt.Println(`"Are you setting out in search of the dragon?"`)
+	fmt.Println(`"Indeed. It the task to which the King has set my sword."`)
+	fmt.Println(`"Well then, good knight! You must not go inadequately armed to such a fearsome foe."`)
+	fmt.Println(`"This lance is your only hope of success."`)
+	fmt.Println(`"And you are giving it to me freely?" you inquire.`)
+	fmt.Println(`"Alas, brave knight, it has taken up precious room on my cart for many a moon"`)
+	fmt.Println(`"I'm afraid I must charge something for the lost income while it has been in my care."`)
 	fmt.Println()
 	dk = getInput("He offers you a weapon he deems a ‘dragon killer’. Will you buy it?")
 	if dk == "no" {
@@ -93,7 +121,7 @@ func merchant() {
 
 }
 func innkeep() {
-	fmt.Println()
+	fmt.Println("-------------------")
 	fmt.Println("You decide on the innkeeper.")
 	fmt.Println("Surely, someone has told him something of the dragon.")
 	fmt.Println("You sidle up to the bar and order a drink.")
@@ -117,7 +145,7 @@ func innkeep() {
 	}
 }
 func crier() {
-	fmt.Println()
+	fmt.Println("-------------------")
 	fmt.Println("He talks for an hour, but provides no useful information.")
 	fmt.Println("You feel your time has been wasted, but you must carry on.")
 }

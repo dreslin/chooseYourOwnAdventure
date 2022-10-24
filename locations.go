@@ -6,6 +6,7 @@ import (
 )
 
 func castle() {
+	fmt.Println("===========================================")
 	fmt.Println()
 	fmt.Println("You have been tasked by the king to kill a dragon that has been terrorizing the land.")
 	fmt.Println("Upon exiting the castle, you consider your situation.")
@@ -32,6 +33,7 @@ func castle() {
 }
 
 func roadTwo() {
+	fmt.Println("===========================================")
 	fmt.Println()
 	fmt.Println("Time to go back the way you came.")
 	fmt.Println("But you realize that it is getting late.")
@@ -59,6 +61,7 @@ func roadTwo() {
 
 }
 func roadOne() {
+	fmt.Println("===========================================")
 	fmt.Println()
 	fmt.Println("And so your journey begins. The road ahead seems long.")
 	fmt.Println("You come across a vagrant lying on the side of the road.")
@@ -80,6 +83,7 @@ func roadOne() {
 }
 
 func village() {
+	fmt.Println("===========================================")
 	fmt.Println()
 	fmt.Println("After riding for what seems like weeks, you come upon a small village.")
 	switch getInput("Will you REST for the night or KEEP GOING?") {
@@ -101,6 +105,7 @@ func village() {
 }
 
 func caveEntrance() {
+	fmt.Println("===========================================")
 	fmt.Println()
 	fmt.Println("You finally arrive at what must be the dragon's lair.")
 
@@ -144,6 +149,7 @@ func caveEntrance() {
 	}
 }
 func caveInterior() {
+	fmt.Println("===========================================")
 	fmt.Println()
 	if player1.Inventory.Weapon == "trueDragonKiller" {
 		fmt.Println()

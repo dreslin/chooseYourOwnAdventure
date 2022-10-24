@@ -36,6 +36,7 @@ var player1 Player
 
 func main() {
 	fmt.Println("Choose your own adventure - The Knight and the Dragon")
+	fmt.Println()
 	createChar()
 	questBegin()
 
@@ -45,18 +46,6 @@ func main() {
 
 }
 
-// var dreslin Player
-// 	dreslin.Name = "Dreslin"
-
-// 	fmt.Println("Choose your own adventure - The Knight and the Dragon")
-
-// fmt.Println()
-// weapon := getInput("Will you take the sword?")
-//
-//	if weapon == "yes" {
-//		dreslin.Inventory.Weapon = "sword"
-//		fmt.Printf("%v has a %v\n", dreslin.Name, dreslin.Inventory.Weapon)
-//	}
 func createChar() {
 	player1.Name = getInput("What is your name?")
 	fmt.Printf("Greetings, %v\n", player1.Name)
@@ -65,6 +54,7 @@ func createChar() {
 }
 
 func questBegin() {
+	fmt.Println("===========================================")
 	fmt.Println()
 	fmt.Println("Welcome, brave adventurer!")
 	fmt.Println("On this journey, you will face many choices.")
