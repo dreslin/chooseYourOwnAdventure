@@ -71,7 +71,7 @@ func roadOne() {
 		fmt.Println("As you crouch down with concern, you are ambushed from behind.")
 		fmt.Println("The bandits kill you and take your horse and belongings.")
 		fmt.Println("The End")
-		showP1()
+		//showP1()
 		os.Exit(0)
 	} else if giveAid == "ride on" {
 		fmt.Println("You ignore the vagrant and continue on your quest.")
@@ -126,7 +126,7 @@ func caveEntrance() {
 			fmt.Println("Exhausted from your bad sleep, you move too slowly.")
 			fmt.Println("The dragon's flaming breath engulfs you.")
 			fmt.Println("You die horribly, cooking in your own armor.")
-			showP1()
+			//showP1()
 			os.Exit(0)
 		}
 	case "look around":
@@ -135,7 +135,7 @@ func caveEntrance() {
 			fmt.Println()
 			fmt.Println("Exhausted from a lack of sleep, you wander for hours and get lost in the tunnels.")
 			fmt.Println("Unable to find your way out again before collapsing from exhaustion, you die a cold death on the dirty stone ground.")
-			showP1()
+			//showP1()
 			os.Exit(0)
 		} else if !player1.Traits.Tired {
 			fmt.Println()
