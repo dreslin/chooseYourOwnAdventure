@@ -10,7 +10,7 @@ import (
 // options array function
 
 func town() {
-	if brave != "ignored" {
+	if player1.Traits.Brave {
 		fmt.Println("===========================================")
 		fmt.Println()
 		fmt.Println("Since you're here again anyway, you consider taking some more time for another villager.")
@@ -43,7 +43,7 @@ func town() {
 	} else {
 		fmt.Println("===========================================")
 		fmt.Println()
-		townsfolk()
+		townfolk()
 		fmt.Println("Unfortunately, you only have time for one conversation.")
 		switch getInput("Would you like to talk to the TOWN CRIER, the INNKEEPER, the TRAVELING MERCHANT or the BLACKSMITH?") {
 		case "town crier":
@@ -70,16 +70,16 @@ func blacksmith() {
 	fmt.Println("While you aren't sure what happened to change his demeanor,")
 	fmt.Println("you believe he's your best chance for reliable aid.")
 	fmt.Println("The dragon killed his daughter. He has created a spear designed to pierce dragon hide.")
-	blksmtOffer = getInput("He offers it to you for your quest. Do you offer him money? ")
+	blksmtOffer := getInput("He offers it to you for your quest. Do you offer him money? ")
 	if blksmtOffer == "yes" {
 		fmt.Println("The blacksmith refuses your money, and gives you the spear with a blessing.")
-		player1.Inventory.Weapon = "trueDragonKiller"
+		player1.Inventory.Weapon = "TDK"
 	} else {
 		fmt.Println("The blacksmith says he doesn't want any money.")
 		blksmtOffer = getInput("He begs you to take the spear to avenge his daughter. Do you accept?")
 		if blksmtOffer == "yes" {
 			fmt.Println("You accept the spear and promise him the death of the dragon.")
-			player1.Inventory.Weapon = "trueDragonKiller"
+			player1.Inventory.Weapon = "TDK"
 		} else if blksmtOffer == "no" {
 			fmt.Println("You insist that you can not carry such a weapon.")
 			fmt.Println("You leave town with just your sword.")
@@ -111,12 +111,12 @@ func merchant() {
 	fmt.Println(`"Alas, brave knight, it has taken up precious room on my cart for many a moon"`)
 	fmt.Println(`"I'm afraid I must charge something for the lost income while it has been in my care."`)
 	fmt.Println()
-	dk = getInput("He offers you a weapon he deems a ‘dragon killer’. Will you buy it?")
+	dk := getInput("He offers you a weapon he deems a ‘dragon killer’. Will you buy it?")
 	if dk == "no" {
 		fmt.Println("You don't trust him, and decline the weapon. You leave town with just your sword.")
 	} else if dk == "yes" {
 		fmt.Println("Hoping you can trust him, you pay a small fortune for the spear.")
-		player1.Inventory.Weapon = "fakeDragonKiller"
+		player1.Inventory.Weapon = "FDK"
 	}
 
 }
@@ -131,16 +131,17 @@ func innkeep() {
 	fmt.Println("You rush out of town through the south gate in search of the village.")
 	fmt.Println("After many stops in every village you finally meet the man who survived.")
 	fmt.Println("He tells you that he was one of 20 soldiers that attacked the dragon. None of them even scratched the beast.")
-	brave = getInput("Do you still want to face the dragon? ")
+	brave := getInput("Do you still want to face the dragon? ")
 	if brave == "yes" {
 		fmt.Println("Knowing it will likely mean death, you decide to continue your quest.")
+		player1.Traits.Brave = true
 		roadTwo()
 	} else {
 		fmt.Println()
 		fmt.Println("You are a coward.")
 		fmt.Println("In hopeless despair, you ride as far away as possible, never to be heard from again.")
 		fmt.Println("The End")
-		showP1()
+		//showP1()
 		os.Exit(0)
 	}
 }
@@ -149,7 +150,7 @@ func crier() {
 	fmt.Println("He talks for an hour, but provides no useful information.")
 	fmt.Println("You feel your time has been wasted, but you must carry on.")
 }
-func townsfolk() {
+func townfolk() {
 	fmt.Println("As you wander around the town, you see many people that might be able to help you.")
 	fmt.Println("There's the town crier over there.")
 	fmt.Println("Because he has to make announcements for the benefit of the town,")

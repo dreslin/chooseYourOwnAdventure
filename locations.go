@@ -63,6 +63,7 @@ func roadTwo() {
 func roadOne() {
 	fmt.Println("===========================================")
 	fmt.Println()
+	var giveAid string
 	fmt.Println("And so your journey begins. The road ahead seems long.")
 	fmt.Println("You come across a vagrant lying on the side of the road.")
 	giveAid = getInput("Do you get off your horse to CHECK ON HIM or RIDE ON and leave him be?")
@@ -151,12 +152,12 @@ func caveEntrance() {
 func caveInterior() {
 	fmt.Println("===========================================")
 	fmt.Println()
-	if player1.Inventory.Weapon == "trueDragonKiller" {
+	if player1.Inventory.Weapon == "TDK" {
 		fmt.Println()
 		fmt.Println("You level your weapon at the dragon and creep into striking distance.")
 		fmt.Println("The weapon slides through the dragonhide smoothly and pierces the heart of the monster.")
 		fmt.Println("Relief washes over you as you realize you've succeeded.")
-	} else if player1.Inventory.Weapon == "fakeDragonKiller" {
+	} else if player1.Inventory.Weapon == "FDK" {
 		fmt.Println()
 		fmt.Println("You level your weapon at the dragon and creep into striking distance.")
 		fmt.Println("As you attempt to stab the beast, the weapon snaps in two.")

@@ -7,8 +7,8 @@ import (
 	"strings"
 )
 
-func getInput(question string) string {
-	fmt.Println(question)
+func getInput(question string, list ...[]string) string {
+	fmt.Sprintf(question)
 	inputReader := bufio.NewReader(os.Stdin)
 	input1, err := inputReader.ReadString('\n')
 	if err != nil {
@@ -20,6 +20,7 @@ func getInput(question string) string {
 		return getInput(question)
 	}
 	return input1
+
 }
 
 func wrongInput() {
@@ -28,6 +29,7 @@ func wrongInput() {
 	fmt.Println()
 
 }
-func showP1() {
-	fmt.Println(player1)
-}
+
+// func showP1() {
+// 	fmt.Println(player1)
+// }
