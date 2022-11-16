@@ -5,65 +5,6 @@ import (
 	"os"
 )
 
-// using variables in strings
-// two ways of concatenating strings
-// options array function
-
-func town() {
-	if player1.Traits.Brave {
-		fmt.Println("===========================================")
-		fmt.Println()
-		fmt.Println("Since you're here again anyway, you consider taking some more time for another villager.")
-		fmt.Println("But then again, the longer you delay, the more others will suffer.")
-
-		query := getInput("Would you like to talk to another villager?")
-		if query == "no" {
-			fmt.Println("Realizing you've spent a fair bit of time chasing tales already, you feel you must be getting on with it.")
-			roadOne()
-		} else if query == "yes" {
-			switch getInput("Which one will it be this time? The TOWN CRIER, the TRAVELING MERCHANT or the BLACKSMITH?") {
-			case "town crier":
-				crier()
-				roadOne()
-			case "traveling merchant":
-				merchant()
-				roadOne()
-			case "blacksmith":
-				fmt.Println()
-				blacksmith()
-				roadOne()
-			default:
-				wrongInput()
-				town()
-			}
-		} else {
-			wrongInput()
-			town()
-		}
-	} else {
-		fmt.Println("===========================================")
-		fmt.Println()
-		townfolk()
-		fmt.Println("Unfortunately, you only have time for one conversation.")
-		switch getInput("Would you like to talk to the TOWN CRIER, the INNKEEPER, the TRAVELING MERCHANT or the BLACKSMITH?") {
-		case "town crier":
-			crier()
-			roadOne()
-		case "innkeeper":
-			innkeep()
-		case "traveling merchant":
-			merchant()
-			roadOne()
-		case "blacksmith":
-			blacksmith()
-			roadOne()
-		default:
-			wrongInput()
-			town()
-		}
-	}
-}
-
 func blacksmith() {
 	fmt.Println("-------------------")
 	fmt.Println("You have always known the blacksmith to be a reliable man.")
@@ -160,6 +101,7 @@ func townfolk() {
 	fmt.Println("The innkeeper has probably heard a lot of stories from various travelers.")
 	fmt.Println("But how many of them are actually true?")
 	fmt.Println("The most compelling stories are usually the most embellished.")
+	fmt.Println("And yet, sometimes crucial nuggets of truth are contained in stories.")
 	fmt.Println("And then there's the merchant. He certainly gets around.")
 	fmt.Println("What has he seen and heard in his travels?")
 	fmt.Println("More importantly, what has he got tucked away in that cart of his?")

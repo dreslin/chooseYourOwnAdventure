@@ -9,7 +9,7 @@ func castle() {
 	fmt.Println("===========================================")
 	fmt.Println()
 	fmt.Println("You have been tasked by the king to kill a dragon that has been terrorizing the land.")
-	fmt.Println("Upon exiting the castle, you consider your situation.")
+	fmt.Println("Upon exiting the castle, you consider your options.")
 	fmt.Println("The situation with the dragon is dire. Every day, someone suffers from the dragons assaults.")
 	fmt.Println("In order to waste no time, you consider going home to make preparations for an immediate departure.")
 	fmt.Println("You also consider that there may be someone in town that could help you in some way.")
@@ -25,7 +25,7 @@ func castle() {
 		roadOne()
 	case "town":
 		fmt.Println("You head to town to talk to the townsfolk to get info that might help kill the dragon.")
-		town()
+		town2()
 	default:
 		wrongInput()
 		castle()
@@ -44,12 +44,12 @@ func roadTwo() {
 		fmt.Println("The innkeeper has nothing but a pallet in the main hall, but it's better than stony ground under a bush.")
 		fmt.Println("You awaken somewhat refreshed, and head back to town")
 		player1.Traits.Tired = false
-		town()
+		town2()
 	} else if delay == "head back" {
 		fmt.Println()
 		fmt.Println("The sun is getting low as you head out, but the dragon must be stopped.")
 		fmt.Println("No one else will die if you can help it.")
-		town()
+		town2()
 		fmt.Println()
 
 	} else {
@@ -86,7 +86,7 @@ func roadOne() {
 func village() {
 	fmt.Println("===========================================")
 	fmt.Println()
-	fmt.Println("After riding for what seems like weeks, you come upon a small village.")
+	fmt.Println("It's been a long ride, but you finally come upon a small village.")
 	switch getInput("Will you REST for the night or KEEP GOING?") {
 	case "rest":
 		fmt.Println("the innkeeper offers you a room and meal and you awake refreshed.")

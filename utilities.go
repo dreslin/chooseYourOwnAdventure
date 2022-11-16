@@ -7,8 +7,13 @@ import (
 	"strings"
 )
 
-func getInput(question string, list ...[]string) string {
-	fmt.Sprintf(question)
+func getInput(question string, options ...string) string {
+	fmt.Print(question)
+	for _, options := range options {
+		fmt.Print(strings.ToUpper(fmt.Sprint(options)))
+	}
+	fmt.Println("?")
+
 	inputReader := bufio.NewReader(os.Stdin)
 	input1, err := inputReader.ReadString('\n')
 	if err != nil {
