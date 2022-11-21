@@ -12,7 +12,6 @@ var options []string
 var option string
 
 func town2() {
-	player1.Traits.Brave = false
 	fmt.Println()
 	fmt.Println("===========================================")
 
@@ -32,6 +31,23 @@ func town2() {
 		fmt.Println("Unfortunately, you only have time for one conversation.")
 		option = getInput("Would you like to talk to the", options...)
 		fmt.Printf("You decide it would be worth your while to talk to %v", option)
+		switch option {
+		case "town crier":
+			crier()
+			roadOne()
+		case "innkeeper":
+			innkeep()
+		case "traveling merchant":
+			merchant()
+			roadOne()
+		case "blacksmith":
+			blacksmith()
+			roadOne()
+		default:
+			wrongInput()
+			town2()
+		}
+
 	} else if player1.Traits.Brave {
 
 		fmt.Println()

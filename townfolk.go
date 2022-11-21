@@ -6,6 +6,7 @@ import (
 )
 
 func blacksmith() {
+	fmt.Println()
 	fmt.Println("-------------------")
 	fmt.Println("You have always known the blacksmith to be a reliable man.")
 	fmt.Println("While you aren't sure what happened to change his demeanor,")
@@ -28,6 +29,7 @@ func blacksmith() {
 	}
 }
 func merchant() {
+	fmt.Println()
 	fmt.Println("-------------------")
 	fmt.Println("That merchant must have picked up something in his travels.")
 	fmt.Println("You decide the go see what he's got for sale.")
@@ -62,6 +64,7 @@ func merchant() {
 
 }
 func innkeep() {
+	fmt.Println()
 	fmt.Println("-------------------")
 	fmt.Println("You decide on the innkeeper.")
 	fmt.Println("Surely, someone has told him something of the dragon.")
@@ -87,6 +90,7 @@ func innkeep() {
 	}
 }
 func crier() {
+	fmt.Println()
 	fmt.Println("-------------------")
 	fmt.Println("He talks for an hour, but provides no useful information.")
 	fmt.Println("You feel your time has been wasted, but you must carry on.")

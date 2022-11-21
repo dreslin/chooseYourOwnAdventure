@@ -91,6 +91,7 @@ func village() {
 	case "rest":
 		fmt.Println("the innkeeper offers you a room and meal and you awake refreshed.")
 		player1.Traits.Tired = false
+		roadEvent()
 		caveEntrance()
 	case "keep going":
 		fmt.Println("You ride on, hoping to make it just a bit further.")
@@ -98,7 +99,7 @@ func village() {
 		fmt.Println("You lay out your bedroll under the stars.")
 		fmt.Println("It rains. You sleep very little.")
 		player1.Traits.Tired = true
-		caveEntrance()
+		roadEvent()
 	default:
 		wrongInput()
 		village()
