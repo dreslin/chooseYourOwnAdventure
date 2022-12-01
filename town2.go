@@ -24,13 +24,13 @@ func town2() {
 		for _, options := range options {
 			fmt.Print(strings.ToUpper(fmt.Sprint(options)))
 		}
-
 		fmt.Println()
 
 		townfolk()
 		fmt.Println("Unfortunately, you only have time for one conversation.")
 		option = getInput("Would you like to talk to the", options...)
 		fmt.Printf("You decide it would be worth your while to talk to %v", option)
+
 		switch option {
 		case "town crier":
 			crier()
@@ -38,6 +38,9 @@ func town2() {
 		case "innkeeper":
 			innkeep()
 		case "traveling merchant":
+			merchant()
+			roadOne()
+		case "merchant":
 			merchant()
 			roadOne()
 		case "blacksmith":
@@ -67,9 +70,10 @@ func town2() {
 		case "town crier":
 			crier()
 			roadOne()
-		case "innkeeper":
-			innkeep()
 		case "traveling merchant":
+			merchant()
+			roadOne()
+		case "merchant":
 			merchant()
 			roadOne()
 		case "blacksmith":

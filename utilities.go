@@ -28,6 +28,27 @@ func getInput(question string, options ...string) string {
 
 }
 
+// func getInput2(question string, options ...string) string {
+// 	fmt.Printf("%v?\n", question)
+// 	for _, option := range options {
+// 		fmt.Print(strings.ToUpper(fmt.Sprint(option)))
+// 		fmt.Print(" ")
+// 	}
+
+// 	inputReader := bufio.NewReader(os.Stdin)
+// 	input1, err := inputReader.ReadString('\n')
+// 	if err != nil {
+// 		panic(err)
+// 	}
+// 	input1 = strings.TrimSuffix(input1, "\n")
+// 	if err != nil {
+
+// 		return getInput(question)
+// 	}
+// 	return input1
+
+// }
+
 func wrongInput() {
 	fmt.Println()
 	fmt.Println("Alas! Thy speech is unintelligible!")
@@ -35,6 +56,40 @@ func wrongInput() {
 
 }
 
-// func showP1() {
-// 	fmt.Println(player1)
-// }
+//	func showP1() {
+//		fmt.Println(player1)
+//	}
+func explore() {
+	fmt.Println("this function will perform a random search of the area.")
+	fmt.Println("try something else.")
+	chooseDestination()
+}
+
+func isAvailable(a []string, str string) bool {
+
+	// a is the array I want to check through
+	for i := 0; i < len(a); i++ {
+		if a[i] == str {
+			return true
+		}
+	}
+	return false
+}
+
+// 	whereto := getInput("Where do you want to go or would you like to explore the area")
+// result := isAvailable(player1.KnownLocations.Locations, whereto)
+// 	toCheck = whereto
+// 	result := isAvailable(player1.KnownLocations.Locations, toCheck)
+// 	if result {
+// 		locale[whereto]()
+// 	} else {
+// 		fmt.Println("you don't know that place yet")
+
+func showAtlas() {
+	loci := player1.KnownLocations.Locations
+	fmt.Println(strings.ToUpper(strings.Trim(fmt.Sprint(loci), "[]")))
+}
+func showWeapons() {
+	arms := player1.Inventory.Weapons
+	fmt.Println(strings.ToUpper(strings.Trim(fmt.Sprint(arms), "[]")))
+}

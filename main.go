@@ -10,6 +10,8 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
+	"time"
 )
 
 type Player struct {
@@ -19,17 +21,13 @@ type Player struct {
 	KnownLocations Atlas
 }
 type Backpack struct {
-	Weapon string
+	Weapons []string
 }
 
-// type Backpack struct {
-// 	Weapons []string
-// }
-
-// func (b *Backpack) Acquire(weapon string) {
-// 	b.Weapons = append(b.Weapons, weapon)
-//example - player1.Inventory.Acquire("dk")
-// }
+func (b *Backpack) Acquire(weapon string) {
+	b.Weapons = append(b.Weapons, weapon)
+	// example - player1.Inventory.Acquire("dk")
+}
 
 type Character struct {
 	Brave bool
@@ -46,24 +44,47 @@ func (a *Atlas) Discover(location string) {
 }
 
 var player1 Player
+var locale map[string]func()
+var toCheck string
+
+func init() {
+	rand.Seed(time.Now().UnixNano())
+}
 
 func main() {
 
 	fmt.Println("Choose your own adventure - The Knight and the Dragon")
 	fmt.Println()
 	createChar()
+	createMap()
 	fmt.Println(player1)
-
-	questBegin()
+	roadEvent()
+	player1.Inventory.Acquire("Dragon Killer")
+	caveInterior()
+	// questBegin()
 
 	fmt.Println()
 
 	//showP1()
 
+	// fmt.Println("showing atlas before adding new areas")
+	// showAtlas()
+	// player1.KnownLocations.Discover("eastern wasteland")
+	// player1.KnownLocations.Discover("cave")
+	// player1.KnownLocations.Discover("hamlet")
+	// player1.KnownLocations.Discover("village")
+
+	// fmt.Println("showing atlas after adding new areas")
+	// showAtlas()
+	// chooseDestination()
+
 }
 
 func createChar() {
 	player1.Name = getInput("What is your name")
+	player1.KnownLocations.Discover("home")
+	player1.KnownLocations.Discover("explore")
+	player1.Inventory.Acquire("sword")
 }
 
 func questBegin() {

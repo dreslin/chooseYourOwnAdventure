@@ -15,13 +15,13 @@ func blacksmith() {
 	blksmtOffer := getInput("He offers it to you for your quest. Do you offer him money? ")
 	if blksmtOffer == "yes" {
 		fmt.Println("The blacksmith refuses your money, and gives you the spear with a blessing.")
-		player1.Inventory.Weapon = "TDK"
+		player1.Inventory.Acquire("Blacksmith Spear")
 	} else {
 		fmt.Println("The blacksmith says he doesn't want any money.")
 		blksmtOffer = getInput("He begs you to take the spear to avenge his daughter. Do you accept?")
 		if blksmtOffer == "yes" {
 			fmt.Println("You accept the spear and promise him the death of the dragon.")
-			player1.Inventory.Weapon = "TDK"
+			player1.Inventory.Acquire("Blacksmith Spear")
 		} else if blksmtOffer == "no" {
 			fmt.Println("You insist that you can not carry such a weapon.")
 			fmt.Println("You leave town with just your sword.")
@@ -59,7 +59,7 @@ func merchant() {
 		fmt.Println("You don't trust him, and decline the weapon. You leave town with just your sword.")
 	} else if dk == "yes" {
 		fmt.Println("Hoping you can trust him, you pay a small fortune for the spear.")
-		player1.Inventory.Weapon = "FDK"
+		player1.Inventory.Acquire("Dragon Killer")
 	}
 
 }
