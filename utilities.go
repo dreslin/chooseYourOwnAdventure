@@ -56,13 +56,13 @@ func wrongInput() {
 
 }
 
-//	func showP1() {
-//		fmt.Println(player1)
-//	}
+func showP1() {
+	fmt.Println(player1)
+}
 func explore() {
-	fmt.Println("this function will perform a random search of the area.")
+	fmt.Println("this choice will perform a random search of the area.")
 	fmt.Println("try something else.")
-	chooseDestination()
+	chooseDestination("explore")
 }
 
 func isAvailable(a []string, str string) bool {
@@ -85,11 +85,22 @@ func isAvailable(a []string, str string) bool {
 // 	} else {
 // 		fmt.Println("you don't know that place yet")
 
-func showAtlas() {
-	loci := player1.KnownLocations.Locations
+func showAtlas(CurrentLocation string) {
+	loci := deleteElement(player1.KnownLocations.Locations, CurrentLocation)
 	fmt.Println(strings.ToUpper(strings.Trim(fmt.Sprint(loci), "[]")))
 }
 func showWeapons() {
 	arms := player1.Inventory.Weapons
 	fmt.Println(strings.ToUpper(strings.Trim(fmt.Sprint(arms), "[]")))
+}
+
+func deleteElement(l []string, local string) []string {
+	for k, v := range l {
+		if v == local {
+			return append(l[:k], l[k+1:]...)
+
+		}
+	}
+
+	panic("Could not find element to delete")
 }

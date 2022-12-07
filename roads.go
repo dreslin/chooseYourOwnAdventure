@@ -33,24 +33,8 @@ func eventSelect() int {
 
 }
 
-func goblins() {
-	fmt.Println("This is a random road event with goblins.")
-
-}
-
-func trolls() {
-	fmt.Println("This is a random road event with trolls.")
-
-}
-func elves() {
-	fmt.Println("This is a random road event with elves.")
-
-}
-func dwarves() {
-	fmt.Println("This is a random road event with dwarves.")
-
-}
-func unicorn() {
-	fmt.Println("This is a random road event with a unicorn.")
-
-}
+func goblins() { fmt.Println("This is a random road event with goblins.") }
+func trolls()  { fmt.Println("This is a random road event with trolls.") }
+func elves()   { fmt.Println("This is a random road event with elves.") }
+func dwarves() { fmt.Println("This is a random road event with dwarves.") }
+func unicorn() { fmt.Println("This is a random road event with a unicorn.") }

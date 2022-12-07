@@ -15,13 +15,13 @@ func blacksmith() {
 	blksmtOffer := getInput("He offers it to you for your quest. Do you offer him money? ")
 	if blksmtOffer == "yes" {
 		fmt.Println("The blacksmith refuses your money, and gives you the spear with a blessing.")
-		player1.Inventory.Acquire("Blacksmith Spear")
+		player1.Inventory.Acquire("blacksmith spear")
 	} else {
 		fmt.Println("The blacksmith says he doesn't want any money.")
 		blksmtOffer = getInput("He begs you to take the spear to avenge his daughter. Do you accept?")
 		if blksmtOffer == "yes" {
 			fmt.Println("You accept the spear and promise him the death of the dragon.")
-			player1.Inventory.Acquire("Blacksmith Spear")
+			player1.Inventory.Acquire("blacksmith spear")
 		} else if blksmtOffer == "no" {
 			fmt.Println("You insist that you can not carry such a weapon.")
 			fmt.Println("You leave town with just your sword.")
@@ -54,12 +54,12 @@ func merchant() {
 	fmt.Println(`"Alas, brave knight, it has taken up precious room on my cart for many a moon"`)
 	fmt.Println(`"I'm afraid I must charge something for the lost income while it has been in my care."`)
 	fmt.Println()
-	dk := getInput("He offers you a weapon he deems a ‘dragon killer’. Will you buy it?")
+	dk := getInput("He offers you a weapon named ‘Dragon Killer’. Will you buy it?")
 	if dk == "no" {
 		fmt.Println("You don't trust him, and decline the weapon. You leave town with just your sword.")
 	} else if dk == "yes" {
 		fmt.Println("Hoping you can trust him, you pay a small fortune for the spear.")
-		player1.Inventory.Acquire("Dragon Killer")
+		player1.Inventory.Acquire("dragon killer")
 	}
 
 }
@@ -79,12 +79,16 @@ func innkeep() {
 	if brave == "yes" {
 		fmt.Println("Knowing it will likely mean death, you decide to continue your quest.")
 		player1.Traits.Brave = true
+		fmt.Println("next function called: roadTwo")
+
 		roadTwo()
 	} else {
 		fmt.Println()
 		fmt.Println("You are a coward.")
 		fmt.Println("In hopeless despair, you ride as far away as possible, never to be heard from again.")
 		fmt.Println("The End")
+		fmt.Println("next function called: os.Exit(0)")
+
 		//showP1()
 		os.Exit(0)
 	}

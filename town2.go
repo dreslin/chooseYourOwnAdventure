@@ -11,7 +11,7 @@ import (
 var options []string
 var option string
 
-func town2() {
+func town() {
 	fmt.Println()
 	fmt.Println("===========================================")
 
@@ -48,7 +48,7 @@ func town2() {
 			roadOne()
 		default:
 			wrongInput()
-			town2()
+			town()
 		}
 
 	} else if player1.Traits.Brave {
@@ -81,7 +81,7 @@ func town2() {
 			roadOne()
 		default:
 			wrongInput()
-			town2()
+			town()
 		}
 	}
 }

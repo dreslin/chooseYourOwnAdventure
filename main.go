@@ -1,13 +1,5 @@
 package main
 
-// refactor into scenes
-// globals are inventory possibilities or knowledge - booleans?
-// globals open new options
-// one scene calls next scene depending on choice
-// locations
-// tracking state of users
-// struct for inventory
-
 import (
 	"fmt"
 	"math/rand"
@@ -15,10 +7,11 @@ import (
 )
 
 type Player struct {
-	Name           string
-	Inventory      Backpack
-	Traits         Character
-	KnownLocations Atlas
+	Name            string
+	Inventory       Backpack
+	Traits          Character
+	KnownLocations  Atlas
+	CurrentLocation Atlas
 }
 type Backpack struct {
 	Weapons []string
@@ -26,7 +19,7 @@ type Backpack struct {
 
 func (b *Backpack) Acquire(weapon string) {
 	b.Weapons = append(b.Weapons, weapon)
-	// example - player1.Inventory.Acquire("dk")
+	// example - player1.Inventory.Acquire("sword")
 }
 
 type Character struct {
@@ -36,6 +29,7 @@ type Character struct {
 
 type Atlas struct {
 	Locations []string
+	Location  string
 }
 
 func (a *Atlas) Discover(location string) {
@@ -52,17 +46,21 @@ func init() {
 }
 
 func main() {
+	locale = make(map[string]func())
+	locale["home"] = func() { home() }
+	locale["cave"] = func() { cave() }
+	locale["cave interior"] = func() { caveInterior() }
+	locale["eastern wasteland"] = func() { easternwasteland() }
+	locale["explore"] = func() { explore() }
+	locale["cave entrance"] = func() { caveEntrance() }
+	locale["crossroads"] = func() { crossroads() }
+	locale["village"] = func() { village() }
+	locale["hamlet"] = func() { hamlet() }
 
 	fmt.Println("Choose your own adventure - The Knight and the Dragon")
 	fmt.Println()
 	createChar()
-	createMap()
-	fmt.Println(player1)
-	roadEvent()
-	player1.Inventory.Acquire("Dragon Killer")
-	caveInterior()
-	// questBegin()
-
+	questBegin()
 	fmt.Println()
 
 	//showP1()
@@ -81,6 +79,7 @@ func main() {
 }
 
 func createChar() {
+
 	player1.Name = getInput("What is your name")
 	player1.KnownLocations.Discover("home")
 	player1.KnownLocations.Discover("explore")
@@ -97,6 +96,8 @@ func questBegin() {
 	fmt.Println("Other times it will be a simple yes or no question.")
 	fmt.Println("Now, be off! Your quest awaits!")
 	fmt.Println()
+	fmt.Println("next function called: castle")
+
 	castle()
 
 }
